@@ -15,7 +15,7 @@ export default function MenuNavigation({
                         key={i.link}
                         className={`${
                             activeLink === i.link ? "bg-white/5" : ""
-                        } w-full focus:outline-none py-2 px-6 text-white hover:bg-white/20 focus:ring-2 focus:ring-gray-300 font-medium text-base inline-flex justify-start items-center`}
+                        } w-full focus:outline-none py-2 px-6 text-white/60 hover:bg-white/20 focus:ring-2 focus:ring-gray-300 font-medium text-base inline-flex justify-start items-center`}
                     >
                         <img alt={i.label} src={i.icon} />
                         <span className="ml-4 truncate">{i.label}</span>
