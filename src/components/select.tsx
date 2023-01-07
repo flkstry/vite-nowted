@@ -21,7 +21,7 @@ const Select = (props: Props) => {
             <SelectPrimitive.Trigger asChild aria-label="Item">
                 <button
                     className="flex items-center justify-between py-2"
-                    style={{ width: props.width ? props.width : 144 }}
+                    style={{ width: props.width ? props.width : 121 }}
                 >
                     <SelectPrimitive.Value />
                     <SelectPrimitive.Icon className="ml-2">

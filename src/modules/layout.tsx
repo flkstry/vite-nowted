@@ -2,7 +2,7 @@ import {
     RecentItemNavigation,
     FolderItemNavigation,
     MenuItemNavigation,
-} from "../seed/navigation";
+} from "../seed/mock";
 import type { ReactNode } from "react";
 import FolderNavigation from "./navigation/folder-navigation";
 import MenuNavigation from "./navigation/menu-navigation";
@@ -52,7 +52,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                     ))}
                 </ul>
             </aside>
-            <section className="p-14 pb-5 w-full h-screen">{children}</section>
+            <section className="p-14 w-full min-h-screen overflow-y-auto scrollbar-hide">
+                {children}
+            </section>
         </main>
     );
 }
