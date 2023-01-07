@@ -53,3 +53,65 @@ export const MenuItemNavigation = [
         icon: 'assets/archived-icon.svg',
     },
 ];
+
+export const TextType = [
+    {
+        value: 'p',
+        label: 'Paragraph'
+    },
+    {
+        value: 'h1',
+        label: 'Header 1'
+    },
+    {
+        value: 'h2',
+        label: 'Header 2'
+    },
+    {
+        value: 'h3',
+        label: 'Header 3'
+    },
+    {
+        value: 'h4',
+        label: 'Header 4'
+    },
+    {
+        value: 'h5',
+        label: 'Header 5'
+    },
+    {
+        value: 'h6',
+        label: 'Header 6'
+    },
+];
+
+export const TextSize = [
+    {
+        value: '12',
+        label: '12'
+    },
+    {
+        value: '14',
+        label: '14'
+    },
+    {
+        value: '16',
+        label: '16'
+    },
+    {
+        value: '18',
+        label: '18'
+    },
+    {
+        value: '20',
+        label: '20'
+    },
+    {
+        value: '24',
+        label: '24'
+    },
+    {
+        value: '28',
+        label: '28'
+    },
+];

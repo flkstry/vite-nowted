@@ -1,25 +1,24 @@
-import RecentDocumentNavigation from "./recent-document-navigation";
-
 import {
     RecentItemNavigation,
     FolderItemNavigation,
     MenuItemNavigation,
 } from "../seed/navigation";
 import type { ReactNode } from "react";
-import FolderNavigation from "./folder-navigation";
-import MenuNavigation from "./menu-navigation";
+import FolderNavigation from "./navigation/folder-navigation";
+import MenuNavigation from "./navigation/menu-navigation";
+import RecentDocumentNavigation from "./navigation/recent-document-navigation";
 import mock from "../seed/mock.json";
-import CardItem from "./card";
+import CardItem from "../components/card";
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <main className="w-screen h-screen flex overflow-hidden bg-black1">
+        <main className="w-screen h-screen flex overflow-hidden bg-black1 text-white">
             <aside className="w-[300px] h-screen" aria-label="Sidebar">
                 <div className="flex py-8 items-center justify-between px-3">
                     <h1 className="px-3">
                         <img alt="Nowted Logo" src="assets/nowted-logo.svg" />
                     </h1>
-                    <button className="focus:outline-none p-2 hover:bg-white/20 py-1 rounded-md focus:ring-2 focus:ring-gray-300 inline-flex justify-start items-center">
+                    <button className="focus:outline-none p-2 hover:bg-white/20 rounded-md focus:ring-2 focus:ring-gray-300 inline-flex justify-start items-center">
                         <img alt="Search Button" src="assets/search-icon.svg" />
                     </button>
                 </div>
@@ -53,7 +52,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     ))}
                 </ul>
             </aside>
-            <section className="p-12 pb-5">{children}</section>
+            <section className="p-14 pb-5 w-full h-screen">{children}</section>
         </main>
     );
 }
