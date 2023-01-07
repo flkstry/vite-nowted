@@ -13,7 +13,7 @@ export default function CardItem({
 }) {
     const formatedDate = new Date(date).toLocaleDateString("en-US");
     return (
-        <button className="block text-white/90 w-full p-5 bg-white/5 rounded-[3px] shadow-md hover:bg-white/20">
+        <button className="block text-white/80 w-full p-5 bg-white/5 rounded-[3px] shadow-md hover:bg-white/20">
             <h5 className="w-full text-left mb-3 text-lg font-semibold tracking-tight">
                 {title}
             </h5>
