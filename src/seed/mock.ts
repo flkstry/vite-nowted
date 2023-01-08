@@ -1,7 +1,7 @@
 export const RecentItemNavigation = [
     {
         link: "/makan",
-        label: "Reflection on the Month of June"
+        label: "Reflection on the Month of June",
     },
     {
         link: "!#",

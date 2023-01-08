@@ -4,13 +4,40 @@ import {
     MenuItemNavigation,
 } from "../seed/mock";
 import type { ReactNode } from "react";
-import FolderNavigation from "./navigation/folder-navigation";
-import MenuNavigation from "./navigation/menu-navigation";
-import RecentDocumentNavigation from "./navigation/recent-document-navigation";
-import mock from "../seed/mock.json";
+import mock from "../seed/mock-article.json";
 import CardItem from "../components/card";
+import NavigationItem from "../components/nav-item";
 
 export default function Layout({ children }: { children: ReactNode }) {
+    const NewRecentItemNavigation = RecentItemNavigation.map((i) =>
+        i.link === "/makan"
+            ? {
+                  ...i,
+                  activeLink: true,
+              }
+            : { ...i }
+    );
+
+    const NewFolderItemNavigation = FolderItemNavigation.map((i) =>
+        i.link === "/makan"
+            ? {
+                  ...i,
+                  activeLink: true,
+              }
+            : { ...i }
+    );
+
+    const NewMenuItemNavigation = MenuItemNavigation.map((i) =>
+        i.link === "/makan"
+            ? {
+                  ...i,
+                  activeLink: true,
+              }
+            : {
+                  ...i,
+              }
+    );
+
     return (
         <main className="w-screen h-screen flex overflow-hidden bg-black1 text-white">
             <aside className="w-[300px] h-screen" aria-label="Sidebar">
@@ -31,9 +58,45 @@ export default function Layout({ children }: { children: ReactNode }) {
                         Note
                     </button>
                 </div>
-                <RecentDocumentNavigation item={RecentItemNavigation} />
-                <FolderNavigation item={FolderItemNavigation} />
-                <MenuNavigation item={MenuItemNavigation} />
+                <div className="my-4">
+                    <h2 className="text-white/60 font-semibold text-sm py-3 px-6">
+                        Recent
+                    </h2>
+                    <nav className="block space-y-[5px]">
+                        {NewRecentItemNavigation.map((i) => (
+                            <NavigationItem
+                                {...i}
+                                icon="assets/documents.svg"
+                                activeLinkStyle="bg-purple1"
+                            />
+                        ))}
+                    </nav>
+                </div>
+                <div className="my-4">
+                    <h2 className="text-white/60 font-semibold text-sm py-3 px-6 flex justify-between items-center">
+                        Folders
+                        <img src="assets/folder.svg" alt="Folder Icon" />
+                    </h2>
+                    <nav className="block space-y-[5px]">
+                        {NewFolderItemNavigation.map((i) => (
+                            <NavigationItem
+                                {...i}
+                                icon="assets/folder-idle.svg"
+                                activeLinkIcon="assets/folder-active.svg"
+                            />
+                        ))}
+                    </nav>
+                </div>
+                <div className="my-4">
+                    <h2 className="text-white/60 font-semibold text-sm py-3 px-6">
+                        More
+                    </h2>
+                    <nav className="block space-y-[5px]">
+                        {NewMenuItemNavigation.map((i) => (
+                            <NavigationItem {...i} />
+                        ))}
+                    </nav>
+                </div>
             </aside>
             <aside
                 className="bg-black2 w-[350px] h-screen"
