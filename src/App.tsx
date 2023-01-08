@@ -1,7 +1,7 @@
 import Layout from "./modules/layout";
 import EmptyDoc from "./modules/main/empty-document";
 import Document from "./modules/main/document-container";
-import mock from "./seed/mock.json";
+import mock from "./seed/mock-article.json";
 
 export default function App() {
     const data = mock.data[0];
