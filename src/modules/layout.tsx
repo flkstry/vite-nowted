@@ -4,11 +4,24 @@ import {
     MenuItemNavigation,
 } from "../seed/mock";
 import type { ReactNode } from "react";
-import mock from "../seed/mock-article.json";
 import CardItem from "../components/card";
 import NavigationItem from "../components/nav-item";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({
+    children,
+    articleLists,
+}: {
+    children: ReactNode;
+    articleLists: {
+        id: string;
+        title: string;
+        slug: string;
+        category: string;
+        short: string;
+        long: string;
+        date: string;
+    }[];
+}) {
     const NewRecentItemNavigation = RecentItemNavigation.map((i) =>
         i.link === "/makan"
             ? {
@@ -66,6 +79,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                         {NewRecentItemNavigation.map((i) => (
                             <NavigationItem
                                 {...i}
+                                key={i.link}
                                 icon="assets/documents.svg"
                                 activeLinkStyle="bg-purple1"
                             />
@@ -81,6 +95,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                         {NewFolderItemNavigation.map((i) => (
                             <NavigationItem
                                 {...i}
+                                key={i.link}
                                 icon="assets/folder-idle.svg"
                                 activeLinkIcon="assets/folder-active.svg"
                             />
@@ -93,7 +108,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     </h2>
                     <nav className="block space-y-[5px]">
                         {NewMenuItemNavigation.map((i) => (
-                            <NavigationItem {...i} />
+                            <NavigationItem {...i} key={i.link} />
                         ))}
                     </nav>
                 </div>
@@ -108,9 +123,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                     </h1>
                 </div>
                 <ul className="px-5 space-y-4 h-[calc(100vh-112px)] scrollbar-hide overflow-y-scroll">
-                    {mock.data.map((i) => (
+                    {articleLists.map((i) => (
                         <li key={i.id}>
-                            <CardItem {...i} />
+                            <CardItem {...i} key={i.id} />
                         </li>
                     ))}
                 </ul>

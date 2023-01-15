@@ -18,7 +18,9 @@ export default function Document(props: Props) {
                 </button>
             </div>
             <div className="flex flex-col gap-y-8">
-                <h2 className="text-3xl font-semibold">{props.title}</h2>
+                <h2 className="text-3xl font-semibold">
+                    {props.title.toUpperCase()}
+                </h2>
                 <div className="pb-3">
                     <div className="flex flex-row pb-3 gap-x-5">
                         <img
@@ -95,8 +97,11 @@ export default function Document(props: Props) {
                     </div>
                 </div>
                 <div className="pb-8">
-                    {props.long.split("\n").map((i) => (
-                        <p className="text-base font-normal mb-6 text-white leading-7">
+                    {props.long.split("\n").map((i, idx) => (
+                        <p
+                            key={`documents-${idx}`}
+                            className="text-base font-normal mb-6 text-white leading-7"
+                        >
                             {i}
                         </p>
                     ))}
